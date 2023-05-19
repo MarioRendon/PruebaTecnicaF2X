@@ -2,15 +2,15 @@
   <table>
     
     <tbody>
-      <tr >
-        <td><input type="text" ((ngModel))="estacion" (input)="filterData()" placeholder="Estacion"></td>
-        <td><input type="text" ((ngModel))="categoria" (input)="filterData()" placeholder="Categoria"></td>
-        <td><input type="text" ((ngModel))="hora" (input)="filterData()" placeholder="Hora"></td>
-        <td><input type="text" ((ngModel))="sentido" (input)="filterData()" placeholder="Sentido"></td>
+      <tr>
+        <td><input type="text" id="estacion" (input)="filterData($event)" placeholder="Estacion" class="withInput"></td>
+        <td><input type="text" id="sentido" (input)="filterData($event)" placeholder="Sentido" class="withInput"></td>
+        <td><input type="text" id="hora" (input)="filterData($event)" placeholder="Hora" class="withInput"></td>
+        <td><input type="text" id="categoria" (input)="filterData($event)" placeholder="Categoria" class="withInput"></td>
       </tr>
     </tbody>
   </table>
-
+<br/>
 
 </div>
 

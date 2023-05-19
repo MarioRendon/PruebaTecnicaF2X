@@ -2,7 +2,7 @@ export class ConsultaModel {
 
     Estacion: string = "";
     Sentido: string = "";
-    Hora: number  = 0;
+    Hora: string  = "";
     Categoria: string = "";
     ValorTabulado: number = 0;
     Cantidad: number = 0;
