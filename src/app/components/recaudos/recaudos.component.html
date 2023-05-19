@@ -1,4 +1,18 @@
+<div class="mat-elevation-z8">
+  <table>
+    
+    <tbody>
+      <tr >
+        <td><input type="text" ((ngModel))="estacion" (input)="filterData()" placeholder="Estacion"></td>
+        <td><input type="text" ((ngModel))="categoria" (input)="filterData()" placeholder="Categoria"></td>
+        <td><input type="text" ((ngModel))="hora" (input)="filterData()" placeholder="Hora"></td>
+        <td><input type="text" ((ngModel))="sentido" (input)="filterData()" placeholder="Sentido"></td>
+      </tr>
+    </tbody>
+  </table>
 
+
+</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

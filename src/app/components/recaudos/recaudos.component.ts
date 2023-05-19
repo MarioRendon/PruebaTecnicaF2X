@@ -13,7 +13,14 @@ export class RecaudosComponent implements AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   constructor(private recaudoService: RecaudoService) { }
-
+  data=[
+    {
+      Estacion:'',
+      Categoria:'',
+      Sentido:'',
+      Hora:'',
+    }
+  ];
   displayedColumns: string[] = ['estacion', 'sentido', 'hora', 'categoria', 'valorTabulado', 'cantidad'];
   dataSource = new MatTableDataSource<ConsultaModel>();
 
@@ -23,6 +30,21 @@ export class RecaudosComponent implements AfterViewInit {
       this.dataSource = new MatTableDataSource<ConsultaModel>(result.Datos);
     });
   }
+
+  filteredData = [...this.data];
+  estacion: string = '';
+  categoria: string = '';
+  sentido: string = '';
+  hora: string = '';
+  filterData() {
+    this.filteredData = this.data.filter(item => 
+      item.Estacion.includes(this.estacion) &&
+      item.Categoria.includes(this.categoria) &&
+      item.Sentido.includes(this.sentido) &&
+      item.Hora.includes(this.hora)
+    );
+  }
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
