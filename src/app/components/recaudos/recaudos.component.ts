@@ -23,9 +23,9 @@ export class RecaudosComponent implements AfterViewInit {
   categoria: string = '';
   sentido: string = '';
   hora: string = '';
-
+  registro: string = '1000';
   ngOnInit(): void {
-    this.consultaRecaudos('');
+    this.consultaRecaudos('?Registro=1000');
   }
   consultaRecaudos(queryParam:string){
   this.recaudoService.getRecaudos(queryParam).subscribe((result: { Datos: ConsultaModel[] | undefined; }) => {
@@ -47,6 +47,7 @@ export class RecaudosComponent implements AfterViewInit {
     queryParam+=(this.isNullOrEmpty(this.categoria)?'':`${'Categoria='}${this.categoria}${'&'}`)
     queryParam+=(this.isNullOrEmpty(this.sentido)?'':`${'Sentido='}${this.sentido}${'&'}`)
     queryParam+=(this.isNullOrEmpty(this.hora)?'':`${'Hora='}${this.hora}${'&'}`)
+    queryParam+=(this.isNullOrEmpty(this.registro)?'':`${'Registro='}${this.registro}${'&'}`)
     if(queryParam.length>0)
     queryParam=`${'?'}${queryParam.substring(0,queryParam.length-1)}`
     return queryParam
@@ -64,8 +65,11 @@ export class RecaudosComponent implements AfterViewInit {
          case"sentido":
             this.sentido=value.toLocaleUpperCase();
          break;
-         case"hora":
+        case"hora":
             this.hora=value.toLocaleUpperCase();
+        break;
+        case"registro":
+            this.registro=value.toLocaleUpperCase();
          break;
     
       }

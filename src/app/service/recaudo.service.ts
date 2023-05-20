@@ -13,8 +13,7 @@ export class RecaudoService {
    return this.http.get(`${this.endpoint}/ConsultaRecaudos${queryParam}`)
      .pipe(
        map((result: any) => {
-         return result;
-
+         return result;9
        }),
      );
  }
